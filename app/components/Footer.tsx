@@ -6,10 +6,10 @@ import { motion } from 'framer-motion';
 
 const footerNavigation = {
   services: [
-    { name: 'Website Design', href: '#services' },
-    { name: 'Online Ordering', href: '#services' },
-    { name: 'Digital Marketing', href: '#services' },
-    { name: 'Reservation System', href: '#services' }
+    { name: 'Basic Pack', href: '#services' },
+    { name: 'Menu Management Pack', href: '#services' },
+    { name: 'Pro Pack', href: '#services' },
+    { name: 'QR Code Menu Pack', href: '#services' }
   ],
   company: [
     { name: 'About Us', href: '#about' },

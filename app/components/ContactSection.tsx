@@ -4,21 +4,62 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 
+interface Service {
+  id: string;
+  title: string;
+  price: string;
+  icon: string;
+  color: string;
+}
+
 interface FormData {
   name: string;
   email: string;
   business: string;
   phone: string;
   message: string;
+  service: string;
 }
 
 export default function ContactSection() {
+  const services: Service[] = [
+    {
+      id: 'basic',
+      title: 'Basic Pack',
+      price: '1500 DH',
+      icon: 'material-symbols:web',
+      color: 'from-yellow-400 to-yellow-500'
+    },
+    {
+      id: 'menu',
+      title: 'Menu Management',
+      price: '1800 DH',
+      icon: 'material-symbols:restaurant-menu',
+      color: 'from-green-400 to-green-500'
+    },
+    {
+      id: 'pro',
+      title: 'Pro Pack',
+      price: '2000 DH',
+      icon: 'material-symbols:workspace-premium',
+      color: 'from-blue-400 to-blue-500'
+    },
+    {
+      id: 'qr',
+      title: 'QR Code Menu',
+      price: 'Custom',
+      icon: 'material-symbols:qr-code-2',
+      color: 'from-purple-400 to-purple-500'
+    }
+  ];
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     business: '',
     phone: '',
-    message: ''
+    message: '',
+    service: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -27,6 +68,10 @@ export default function ContactSection() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const selectService = (serviceId: string) => {
+    setFormData(prev => ({ ...prev, service: serviceId }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -53,7 +98,8 @@ export default function ContactSection() {
           email: '',
           business: '',
           phone: '',
-          message: ''
+          message: '',
+          service: ''
         });
       } else {
         setSubmitStatus('error');
@@ -105,12 +151,10 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-1">Phone</h4>
-                  <p className="text-gray-600 font-light">+212-620-739-939</p>
+                  <p className="text-gray-600 font-light">+212-634262436</p>
                   <p className="text-sm text-gray-500">Available 24/7</p>
                 </div>
               </div>
-
-            
 
               <div className="flex items-start space-x-4">
                 <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-xl flex-shrink-0">
@@ -118,7 +162,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-1">Business Hours</h4>
-                  <p className="text-gray-600 font-light">Monday - Friday: 8:00 AM - 8:00 PM</p>
+                  <p className="text-gray-600 font-light">Monday - Friday: 9:00 AM - 8:00 PM</p>
                   <p className="text-gray-600 font-light">Weekend: 10:00 AM - 6:00 PM</p>
                 </div>
               </div>
@@ -163,20 +207,23 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                       Full Name *
                     </label>
                     <input
                       type="text"
                       id="name"
                       name="name"
-                      required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors duration-200"
-                      placeholder="John Doe"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400"
+                      required
                     />
                   </div>
+
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
@@ -192,9 +239,6 @@ export default function ContactSection() {
                       placeholder="john@example.com"
                     />
                   </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="business" className="block text-sm font-medium text-gray-700 mb-2">
                       Business Name *
@@ -210,6 +254,9 @@ export default function ContactSection() {
                       placeholder="Your Restaurant/Hotel"
                     />
                   </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number
@@ -223,6 +270,37 @@ export default function ContactSection() {
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors duration-200"
                       placeholder="+1 (555) 123-4567"
                     />
+                  </div>
+                </div>
+
+                
+
+                <div className="pt-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    Select a Service *
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    {services.map((service) => (
+                      <div 
+                        key={service.id}
+                        onClick={() => selectService(service.id)}
+                        className={`p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
+                          formData.service === service.id 
+                            ? 'border-yellow-400 bg-yellow-50' 
+                            : 'border-gray-200 hover:border-yellow-300'
+                        }`}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center`}>
+                            <Icon icon={service.icon} className="w-5 h-5 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-gray-900">{service.title}</h4>
+                            <p className="text-sm text-gray-600">{service.price}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 

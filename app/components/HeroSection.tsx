@@ -13,7 +13,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
@@ -32,9 +32,9 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-8"
         >
-          <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-white text-sm font-medium mb-6 shadow-lg">
             <Icon icon="material-symbols:restaurant" className="w-4 h-4 mr-2 text-yellow-400" />
-            Digital Solutions for Hospitality Industry
+            Digital Solutions for Restaurants
           </div>
         </motion.div>
 
@@ -42,11 +42,11 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-white mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-white mb-8"
         >
           Elevate Your
           <span className="block">
-            <span className="text-yellow-400 font-medium">Restaurant</span> & <span className="text-yellow-400 font-medium">Hotel</span>
+            <span className="text-yellow-400 font-medium">Restaurant</span> Experience
           </span>
           <span className="block font-light">Digital Presence</span>
         </motion.h1>
@@ -57,7 +57,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-12 font-light"
         >
-          Professional digital services tailored for restaurants and hotels. From stunning websites to complete online ordering systems, we help you serve your customers better in the digital world.
+          Professional digital services tailored for restaurants. From stunning websites to complete online ordering systems, we help you serve your customers better in the digital world.
         </motion.p>
 
         <motion.div
@@ -127,9 +127,8 @@ export default function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center text-white/70"
+          className="flex flex-col items-center text-white/70 pt-3"
         >
-          <span className="text-sm font-light mb-2">Scroll to explore</span>
           <Icon icon="heroicons:chevron-down" className="w-6 h-6" />
         </motion.div>
       </motion.div>

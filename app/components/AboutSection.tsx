@@ -21,9 +21,9 @@ export default function AboutSection () {
             <span className='text-yellow-500 font-medium'>Click & Serve</span>
           </h2>
           <p className='text-lg text-gray-600 max-w-3xl mx-auto font-light'>
-            We&apos;re passionate about helping restaurants and hotels succeed
-            in the digital world. Our team combines deep industry knowledge with
-            cutting-edge technology to deliver results that matter.
+            We&apos;re passionate about helping restaurants succeed in the digital world. 
+            Our team combines deep industry knowledge with cutting-edge technology to 
+            deliver results that matter to your restaurant business.
           </p>
         </motion.div>
 
@@ -40,19 +40,15 @@ export default function AboutSection () {
             </h3>
             <p className='text-gray-600 mb-6 font-light leading-relaxed'>
               Click & Serve was created with one clear mission: to help
-              restaurants and hotels thrive in the digital era. As hospitality
-              professionals ourselves, we experienced the daily challenges of
+              restaurants thrive in the digital era. As restaurant industry
+              professionals ourselves, we understand the daily challenges of
               managing reservations, orders, and customer engagement — and we
               knew there had to be a smarter way.
             </p>
             <p className='text-gray-600 mb-8 font-light leading-relaxed'>
-              Today, we’re proud to be the digital partner of choice for{' '}
-              <span className='font-semibold'>
-                300+ restaurants and hotels worldwide
-              </span>
-              . Our solutions empower hospitality businesses to increase
-              revenue, simplify operations, and deliver unforgettable guest
-              experiences both online and offline.
+              Today, we&apos;re proud to be the digital partner of choice for <span className='text-yellow-500 font-bold'>restaurants</span>.
+              Our solutions help increase revenue, simplify operations, and deliver
+              unforgettable dining experiences both online and offline.
             </p>
           
           </motion.div>
