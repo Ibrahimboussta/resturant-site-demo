@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from 'next/script';
+import { Suspense } from 'react';
 import "./globals.css";
 import { CosmicAnalyticsProvider } from "cosmic-analytics";
 import Navbar from "@/app/components/Navbar";
@@ -39,7 +40,9 @@ export default function RootLayout({
                     __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${GA_ID}', { page_path: window.location.pathname });`,
                   }}
                 />
-                <Analytics />
+                <Suspense fallback={null}>
+                  <Analytics />
+                </Suspense>
               </>
             )}
 
